@@ -7,8 +7,7 @@ name = "pypi"
 requests = "*"
 psutil = "*"
 flask = "*"
-flask-sqlalchemy = "*"
-flask-restful = "*"
+flask-pymongo = "*"
 
 [dev-packages]
 
