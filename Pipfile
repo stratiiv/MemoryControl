@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 requests = "*"
 psutil = "*"
+flask = "*"
+flask-sqlalchemy = "*"
+flask-restful = "*"
 
 [dev-packages]
 
