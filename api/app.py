@@ -1,8 +1,9 @@
 from flask import Flask,request,jsonify
 from flask_pymongo import PyMongo
-
+import os 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/todo_db"
+
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 mongodb_client = PyMongo(app)
 db = mongodb_client.db
 
