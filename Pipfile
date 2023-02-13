@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 flask = "*"
 requests = "*"
+pymongo = "*"
+psutil = "*"
 
 [dev-packages]
 
