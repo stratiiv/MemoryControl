@@ -1,0 +1,6 @@
+memory_control.py
+.gitignore
+Dockerfile
+docker-compose.yaml
+Pipfile 
+Pipfile.lock

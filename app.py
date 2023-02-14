@@ -5,19 +5,18 @@ import json
 
 app = Flask(__name__)
 
-mongodb_client = MongoClient('mongodb://root:pass@localhost:27018/')
+mongodb_client = MongoClient('mongodb://root:pass@mongodb')
 db = mongodb_client.test_db
 coll = db.test_collection
 
 @app.route('/api/v1/list',methods = ['GET'])
 def get_data():
     try:
-        if coll.find().count() > 0:
-            return json.loads(json_util.dumps([obj for obj in coll.find()]))
-        else:
-            return jsonify([])
+        return json.loads(json_util.dumps([obj for obj in coll.find()]))
+
     
-    except:
+    except Exception as e:
+        print(e)
         return jsonify({'message':'Error while trying to fetch the resource'}), 500
  
 
@@ -54,4 +53,4 @@ def put_data(obj_id):
         return jsonify({'message':'Error while trying to fetch the resource'}), 500
  
 if __name__=='__main__':
-    app.run(host='127.0.0.1',port=8080,debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
