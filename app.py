@@ -2,10 +2,11 @@ from flask import Flask,request,jsonify
 from pymongo import MongoClient
 from bson import json_util
 import json
+import os
 
 app = Flask(__name__)
-
-mongodb_client = MongoClient('mongodb://root:pass@mongodb')
+MONGODB_URI = os.environ.get("MONGODB_URI","mongodb://root:pass@localhost:27018/")
+mongodb_client = MongoClient(MONGODB_URI)
 db = mongodb_client.test_db
 coll = db.test_collection
 
